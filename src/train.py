@@ -10,8 +10,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 
 MODEL_DIR = "models"
-MODEL_FILE = "regression_model.joblib"
-TEST_FILE = "test_sample.joblib"
+MODEL_FILE = "Regression_model.joblib"
+TEST_FILE = "test_data.joblib"
 
 RANDOM_STATE = 42
 TEST_SPLIT_RATIO = 0.2
@@ -69,13 +69,11 @@ def train_regression_model(X, y):
 
 
 def persist_model_and_data(model, test_data):
-  
     try:
         os.makedirs(MODEL_DIR, exist_ok=True)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        model_path = os.path.join(MODEL_DIR, f"{timestamp}_{MODEL_FILE}")
-        test_data_path = os.path.join(MODEL_DIR, f"{timestamp}_{TEST_FILE}")
+        model_path = os.path.join(MODEL_DIR, MODEL_FILE)
+        test_data_path = os.path.join(MODEL_DIR, TEST_FILE)
 
         joblib.dump(model, model_path)
         joblib.dump(test_data, test_data_path)
@@ -85,6 +83,7 @@ def persist_model_and_data(model, test_data):
 
         logging.debug(f"Model intercept: {model.intercept_}")
         logging.debug(f"Model coefficients: {model.coef_}")
+
     except Exception as error:
         logging.error(f"Failed to save outputs: {error}")
         raise
