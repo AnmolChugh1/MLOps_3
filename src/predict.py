@@ -14,15 +14,15 @@ logging.basicConfig(
 
 
 MODEL_DIRECTORY = "models"
-MODEL_FILENAME = "linear_model.joblib"
+MODEL_FILENAME = "Regression_model.joblib"
 TEST_DATA_FILENAME = "test_data.joblib"
 MINIMUM_R2 = 0.5
 
 
 def load_resources():
  
-    model_path = os.path.join(MODEL_DIRECTORY, MODEL_FILENAME)
-    test_data_path = os.path.join(MODEL_DIRECTORY, TEST_DATA_FILENAME)
+    model_path = "models/Regression_model.joblib"
+    test_data_path = "models/test_data.joblib"
 
     logging.info(f"Loading model from: {model_path}")
     logging.info(f"Loading test data from: {test_data_path}")
