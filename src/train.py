@@ -9,6 +9,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 
+os.rename("models/20250726_205151_test_sample.joblib", "models/test_data.joblib")
+os.rename("models/20250726_205151_regression_model.joblib", "models/regression_model.joblib")
+
+
 
 MODEL_DIR = "models"
 MODEL_FILE = "regression_model.joblib"
